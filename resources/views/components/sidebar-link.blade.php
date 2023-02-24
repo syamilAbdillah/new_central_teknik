@@ -1,4 +1,4 @@
-@props(['href', 'active'])
+@props(['active'])
 
 @php
 $classes = ($active ?? false)
