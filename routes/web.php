@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function() {
 
     Route::resource('users', UserController::class)
         ->except(['show', 'edit', 'update']);
-    
+    Route::resource('products', ProductController::class)->except('show');
 });
 
 Route::middleware('auth')->group(function () {

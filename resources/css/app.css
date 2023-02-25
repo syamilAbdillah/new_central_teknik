@@ -29,6 +29,14 @@
         @apply bg-neutral-400;
     }
 
+    .btn-danger {
+        @apply bg-rose-500 text-white;
+    }
+
+    .btn-danger:hover {
+        @apply bg-rose-400;
+    }
+
     /* INPUT */
     .input {
         @apply block w-full px-5 py-3 text-sm text-gray-600 placeholder-gray-400 transition duration-500 ease-in-out transform border border-transparent rounded bg-gray-100;

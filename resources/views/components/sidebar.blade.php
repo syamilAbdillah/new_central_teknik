@@ -16,7 +16,7 @@
         <x-sidebar-link :href="route('users.index')" :active="request()->routeIs('users.*')">
             {{__('Pengguna')}}
         </x-sidebar-link>
-        <x-sidebar-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+        <x-sidebar-link :href="route('products.index')" :active="request()->routeIs('products.*')">
             {{__('Produk')}}
         </x-sidebar-link>
     </ul>
