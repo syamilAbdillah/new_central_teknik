@@ -27,7 +27,7 @@
                             <td>{{ $product->price }}</td>
                             <td>
                                 <div class="flex gap-1 flex-col sm:flex-row items-center">
-                                    <button class="btn btn-neutral">edit</button>
+                                    <a class="btn btn-neutral" href="{{ route('products.edit', ['product' => $product]) }}">edit</a>
                                     <button class="btn btn-danger">delete</button>
                                 </div>
                             </td>

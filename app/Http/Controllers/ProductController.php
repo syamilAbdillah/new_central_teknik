@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -54,7 +55,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('dashboard.product.edit', [
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -62,7 +65,38 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => "required|string|max:128",
+            'price' => "required|numeric|gt:0",
+        ]);
+        
+        
+        if($validator->fails()) {
+            return redirect(route('products.edit', ['product' => $product]))
+            ->withErrors($validator)
+            ->withInput();
+        }
+        
+        $validated = $validator->validated();
+        
+        $exist = Product::where('id', '<>', $product->id)
+            ->where('name', $request->input('name'))
+            ->first();
+
+        if($exist != null) {
+            $name = $validated['name'];
+            $validator->errors()
+                ->add('name', "'$name' has already been taken.");
+            return redirect(route('products.edit', ['product' => $product]))
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $product->name = $validated['name'];
+        $product->price = $validated['price'];
+        $product->save();
+        
+        return redirect(route('products.index'));
     }
 
     /**
