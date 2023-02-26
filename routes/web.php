@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -16,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CatalogueController::class, 'index']);
+Route::get('/{product_slug}', [CatalogueController::class, 'show']);
 
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function() {

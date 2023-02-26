@@ -63,4 +63,9 @@
     .table tbody tr {
         @apply border-b last:border-none;
     }
+
+    .rainfall {
+        background-color: transparent;
+        background-image: url(https://merch.deno.com/raindrops-animate.svg);
+    }
 }
