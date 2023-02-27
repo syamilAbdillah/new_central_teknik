@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased text-neutral-700">
-        <div class="min-h-screen bg-neutral-50">
+        <div class="min-h-screen bg-white">
 
             <div class="w-full rainfall bg-rose-500">
                 <nav class="flex items-center justify-between px-4 py-8 w-full max-w-screen-lg mx-auto">

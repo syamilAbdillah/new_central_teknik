@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CatalogueController::class, 'index']);
-Route::get('/{product_slug}', [CatalogueController::class, 'show']);
-
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function() {
     Route::get('/', function() {
@@ -38,3 +35,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+Route::get('/', [CatalogueController::class, 'index']);
+Route::get('/{product_slug}', [CatalogueController::class, 'show'])->name('catalogue.detail');
