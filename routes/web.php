@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Merk;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,19 +43,36 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/', function() {
-    $merks = Merk::all();
+    $merks = Merk::all()->sortBy('name')->take(6);
+    $products = Product::with('merk')->get()->sortBy('name')->take(6);
 
     return view('landing.home', [
         'merks' => $merks,
+        'products' => $products,
     ]);
 })->name('landing.home');
 
 Route::get('/merk', function() {
-    return view('landing.merks');
-})->name('landing.merks');
+    $merks = Merk::all();
+
+    return view('landing.merks.index', [
+        'merks' => $merks,
+    ]);
+})->name('landing.merks.index');
+
+
+
+Route::get('/merk/{merk}', function(Merk $merk) {
+    return view('landing.merks.detail', [
+        'merk' => $merk,
+    ]);
+})->name('landing.merks.detail');
 
 Route::get('/daftar-produk', function() {
-    return view('landing.products');
+    $products = Product::with('merk')->get();
+    return view('landing.products', [
+        'products' => $products,
+    ]);
 })->name('landing.products');
 
 Route::get('/tentang-kami', function() {

@@ -33,8 +33,8 @@
                         Daftar Produk
                     </x-landing-nav-link>
                     <x-landing-nav-link 
-                        :href="route('landing.merks')" 
-                        :active="request()->routeIs('landing.merks')"
+                        :href="route('landing.merks.index')" 
+                        :active="request()->routeIs('landing.merks.*')"
                     >
                         Merk
                     </x-landing-nav-link>
