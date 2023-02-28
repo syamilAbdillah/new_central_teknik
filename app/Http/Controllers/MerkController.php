@@ -52,7 +52,7 @@ class MerkController extends Controller
      */
     public function edit(Merk $merk)
     {
-        return view('dashboard.merk.edit');
+        return view('dashboard.merk.edit', ['merk' => $merk]);
     }
 
     /**
@@ -60,7 +60,14 @@ class MerkController extends Controller
      */
     public function update(Request $request, Merk $merk)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $merk->name = $validated['name'];
+        $merk->save();
+
+        return redirect(route('merks.index'));
     }
 
     /**
