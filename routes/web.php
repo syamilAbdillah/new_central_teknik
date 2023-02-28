@@ -5,6 +5,7 @@ use App\Http\Controllers\MerkController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\Merk;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,5 +41,26 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/', [CatalogueController::class, 'index']);
-Route::get('/{product_slug}', [CatalogueController::class, 'show'])->name('catalogue.detail');
+Route::get('/', function() {
+    $merks = Merk::all();
+
+    return view('landing.home', [
+        'merks' => $merks,
+    ]);
+})->name('landing.home');
+
+Route::get('/merk', function() {
+    return view('landing.merks');
+})->name('landing.merks');
+
+Route::get('/daftar-produk', function() {
+    return view('landing.products');
+})->name('landing.products');
+
+Route::get('/tentang-kami', function() {
+    return view('landing.about');
+})->name('landing.about');
+
+Route::get('/jasa', function() {
+    return view('landing.services');
+})->name('landing.services');
