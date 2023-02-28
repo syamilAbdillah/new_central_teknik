@@ -19,6 +19,14 @@
                         <span class="label text-rose-500">{{ $message }}</span>    
                     @enderror
                 </label>
+                <label class="block">
+                    <span class="label">{{__('Merk')}}</span>
+                    <select name="merk_id" class="input" >
+                        @foreach ($merks as $merk)
+                            <option value="{{ $merk->id }}" @selected($merk->id == $product->merk_id)>{{ $merk->name }}</option>
+                        @endforeach
+                    </select>
+                </label>
 
                 <div class="flex justify-end items-center gap-2">
                     <button type="reset" class="btn bg-neutral-100">{{__('Batal')}}</button>

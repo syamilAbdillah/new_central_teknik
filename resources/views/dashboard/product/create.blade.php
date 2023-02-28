@@ -18,6 +18,19 @@
                         <span class="label text-rose-500">{{ $message }}</span>    
                     @enderror
                 </label>
+                <label class="block">
+                    <span class="label">{{ __('Merk') }}</span>
+                    <select name="merk_id" class="input">
+                        @forelse ($merks as $merk)
+                            <option value="{{ $merk->id }}">{{ $merk->name }}</option>
+                        @empty
+                            <option>belum ada data merk</option>
+                        @endforelse
+                    </select>
+                    @error('merk_id')
+                        <span class="label text-rose-500">{{ $message }}</span>
+                    @enderror
+                </label>
 
                 <div class="flex justify-end items-center gap-2">
                     <button type="reset" class="btn bg-neutral-100">{{__('Batal')}}</button>

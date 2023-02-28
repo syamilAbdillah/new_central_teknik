@@ -12,7 +12,7 @@ class MerkController extends Controller
      */
     public function index()
     {
-        $merks = Merk::all();
+        $merks = Merk::all()->sortBy('name');
         return view('dashboard.merk.index', [
             'merks' => $merks,
         ]);

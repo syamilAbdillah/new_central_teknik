@@ -13,7 +13,8 @@
                         <th>gambar</th>
                         <th>nama produk</th>
                         <th>harga</th>
-                        <th>...</th>
+                        <th>merk</th>
+                        <th>aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,10 +26,16 @@
                             </td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>
+                            <td>{{ $product->merk->name }}</td>
                             <td>
                                 <div class="flex gap-1 flex-col sm:flex-row items-center">
                                     <a class="btn btn-neutral" href="{{ route('products.edit', ['product' => $product]) }}">edit</a>
-                                    <button class="btn btn-danger">delete</button>
+                                    
+                                    <form action="{{ route('products.destroy', ['product' => $product]) }}" method="post" class="inline-flex">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

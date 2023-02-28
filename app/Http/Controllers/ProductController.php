@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Merk;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('merk')->get()->sortBy('name');
         return view('dashboard.product.index', [
             'products' => $products,
         ]);
@@ -25,7 +26,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard.product.create');
+        $merks = Merk::all()->sortBy('name');
+        return view('dashboard.product.create', [
+            'merks' => $merks,
+        ]);
     }
 
     /**
@@ -36,6 +40,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'name' => "required|string|max:128|unique:".Product::class,
             'price' => "required|numeric|gt:0",
+            'merk_id' => "required|numeric|exists:merks,id",
         ]);
 
         Product::create($validated);
@@ -55,8 +60,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $merks = Merk::all()->sortBy('name');
         return view('dashboard.product.edit', [
             'product' => $product,
+            'merks' => $merks,
         ]);
     }
 
@@ -68,6 +75,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => "required|string|max:128",
             'price' => "required|numeric|gt:0",
+            'merk_id' => "required|numeric|exists:merks,id"
         ]);
         
         
@@ -94,6 +102,7 @@ class ProductController extends Controller
 
         $product->name = $validated['name'];
         $product->price = $validated['price'];
+        $product->merk_id = $validated['merk_id'];
         $product->save();
         
         return redirect(route('products.index'));
@@ -104,6 +113,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect(route('products.index'));
     }
 }
