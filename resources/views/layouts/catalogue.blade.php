@@ -18,8 +18,10 @@
     <body class="font-sans antialiased text-white">
         <div class="min-h-screen bg-midnight bg-wave">
 
-            <nav class="fixed top-0 inset-x-0 transition" id="landing-nav">
-                <div class="w-full max-w-screen-md mx-auto px-4 py-6">
+            {{-- NAVBAR --}}
+            <nav class="fixed top-0 inset-x-0 transition" id="landing-nav" x-data="landing_navbar_toggle">
+                <div class="w-full max-w-screen-md mx-auto p-6">
+                    {{-- DESKTOP MENU --}}
                     <ul class="hidden md:flex justify-between items-center">
                         <x-landing-nav-link 
                             :href="route('landing.home')" 
@@ -52,9 +54,47 @@
                             Jasa
                         </x-landing-nav-link>
                     </ul>
+
+                    {{-- RESPONSIVE NAVBAR --}}
                     <div class="flex md:hidden justify-between items-center">
                         <h1 class="font-black">NCT</h1>
-                        <x-menu-icon></x-menu-icon>
+                        <x-menu-icon @click="toggle"></x-menu-icon>
+                    </div>
+
+                    <div class="md:hidden absolute top-18 right-6 bg-abyss rounded-lg p-4 border border-slate-600 shadow" x-show="!hide" @click.outside="close" x-transition>
+                        <ul class="flex flex-col gap-1">
+                            <x-landing-responsive-nav-link 
+                                :href="route('landing.home')" 
+                                :active="request()->routeIs('landing.home')"
+                            >
+                                Home
+                            </x-landing-responsive-nav-link>
+                            <x-landing-responsive-nav-link 
+                                :href="route('landing.products')" 
+                                :active="request()->routeIs('landing.products')"
+                            >
+                                Daftar Produk
+                            </x-landing-responsive-nav-link>
+                            <x-landing-responsive-nav-link 
+                                :href="route('landing.merks.index')" 
+                                :active="request()->routeIs('landing.merks.*')"
+                            >
+                                Merk
+                            </x-landing-responsive-nav-link>
+                            <x-landing-responsive-nav-link 
+                                :href="route('landing.about')" 
+                                :active="request()->routeIs('landing.about')"
+                            >
+                                Tentang Kami
+                            </x-landing-responsive-nav-link>
+                            <x-landing-responsive-nav-link 
+                                :href="route('landing.services')" 
+                                :active="request()->routeIs('landing.services')"
+                            >
+                                Jasa
+                            </x-landing-responsive-nav-link>
+
+                        </ul>
                     </div>
                 </div>
             </nav>

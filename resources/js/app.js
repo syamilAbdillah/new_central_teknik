@@ -12,6 +12,18 @@ Alpine.data('update_image', update_image)
 Alpine.data('image_preview', image_preview)
 Alpine.data('show_password', show_password)
 Alpine.store('sidebar_toggle', sidebar_toggle)
+Alpine.data('landing_navbar_toggle', () => ({
+    hide: true,
+    open() {
+        this.hide = false
+    },
+    close() {
+        this.hide = true
+    },
+    toggle() {
+        this.hide = !this.hide
+    },
+}))
 Alpine.start();
 
 const nav = document.getElementById('landing-nav')
