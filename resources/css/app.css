@@ -81,7 +81,16 @@
         background: #161842;
     }
 
+    .bg-abyss {
+        background: #090B1D;
+    }
+
     .text-midnight {
         color: #161842;
+    }
+
+    .bg-wave {
+        background-image: url('wave.svg');
+        background-repeat: no-repeat;
     }
 }

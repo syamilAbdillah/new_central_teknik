@@ -13,3 +13,13 @@ Alpine.data('image_preview', image_preview)
 Alpine.data('show_password', show_password)
 Alpine.store('sidebar_toggle', sidebar_toggle)
 Alpine.start();
+
+const nav = document.getElementById('landing-nav')
+
+if(nav) {
+    console.log('run')
+    window.addEventListener('scroll', () => {
+        console.log('scroll y => ', window.scrollY)
+        nav.classList.toggle('bg-abyss', window.scrollY > 36)
+    })
+}

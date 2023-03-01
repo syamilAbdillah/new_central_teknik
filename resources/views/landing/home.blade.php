@@ -1,8 +1,8 @@
 <x-catalogue-layout>
     <x-section>
-        <div class="space-y-4">
-            <h1 class="text-6xl font-black md:text-center">New Central Teknik</h1>
-            <p class="md:text-center text-neutral-300 text-xl">
+        <div class="space-y-12">
+            <h1 class="text-6xl font-black">New Central Teknik</h1>
+            <p class=" text-neutral-300 text-xl">
                 New Central teknik Telah melayani berbagai Perusahaan Industri Baik dalam hal kebutuhan Sparepart maupun Jasa Pengadaan,Perbaikan,Perawatan Unit Pendingin Kami 
             </p>
         </div>
@@ -12,7 +12,7 @@
             <h1 class="text-2xl font-bold text-center">Merk</h1>
             <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
                 @foreach ($merks as $merk)
-                    <a href="{{ route('landing.merks.detail', ['merk' => $merk]) }}" class="flex flex-col items-center">
+                    <a href="{{ route('landing.merks.detail', ['merk' => $merk]) }}" class="flex flex-col items-center justify-center p-4 bg-blue-900/25 rounded-lg hover:scale-105 transition">
                         <img src="{{ $merk->image }}" alt="{{ $merk->name }}">
                         <span>{{ $merk->name }}</span>
                     </a>
