@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Merk;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function() {
     Route::get('/', function() {
-        return view('dashboard.index');
+        $user = User::all()->count();
+        $merk = Merk::all()->count();
+        $product = Product::all()->count();
+        return view('dashboard.index', [
+            'user' => $user,
+            'merk' => $merk,
+            'product' => $product,
+        ]);
     })->name('dashboard');
 
     Route::resource('users', UserController::class)
