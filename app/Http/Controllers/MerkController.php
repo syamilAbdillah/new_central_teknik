@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Merk;
 use Illuminate\Http\Request;
+use Cloudinary\Configuration\Configuration;
+use Cloudinary\Api\Upload\UploadApi;
 
 class MerkController extends Controller
 {
@@ -32,10 +34,19 @@ class MerkController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'image' => 'required|image|file|max:1024',
         ]);
 
-        Merk::create($validated);
+        Configuration::instance(env('CLOUDINARY_URL'));     
+        $upload = new UploadApi();
+        $result = $upload->upload($request->file('image')->getRealPath(), [
+            'folder' => 'new_central_teknik',
+        ]);
+        $merk = new Merk();
+        $merk->name = $validated['name'];
+        $merk->image =  $result['secure_url'];
+        $merk->save();
         return redirect(route('merks.index'));
     }
 

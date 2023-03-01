@@ -16,7 +16,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ $merk->image }}" alt="{{ $merk->name }}" class="h-12 w-12 rounded-md object-cover">
+                                <img src="{{ $merk->image }}" alt="{{ $merk->name }}" class="h-16">
                             </td>
                             <td>{{ $merk->name }}</td>
                             <td>
