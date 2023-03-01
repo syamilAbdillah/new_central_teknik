@@ -38,14 +38,9 @@ class MerkController extends Controller
             'image' => 'required|image|file|max:1024',
         ]);
 
-        Configuration::instance(env('CLOUDINARY_URL'));     
-        $upload = new UploadApi();
-        $result = $upload->upload($request->file('image')->getRealPath(), [
-            'folder' => 'new_central_teknik',
-        ]);
         $merk = new Merk();
         $merk->name = $validated['name'];
-        $merk->image =  $result['secure_url'];
+        $merk->image =  $this->cloudinary($request->file('image')->getRealPath());
         $merk->save();
         return redirect(route('merks.index'));
     }
@@ -72,10 +67,17 @@ class MerkController extends Controller
     public function update(Request $request, Merk $merk)
     {
         $validated = $request->validate([
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'update_image' => 'image|file|max:1024',
         ]);
 
         $merk->name = $validated['name'];
+        $update_image = $request->file('update_image');
+        
+        if($update_image) {
+            $merk->image = $this->cloudinary($update_image->getRealPath());
+        }
+
         $merk->save();
 
         return redirect(route('merks.index'));
@@ -87,5 +89,17 @@ class MerkController extends Controller
     public function destroy(Merk $merk)
     {
         //
+    }
+
+    private function cloudinary(string $path): string
+    {
+
+        Configuration::instance(env('CLOUDINARY_URL'));     
+        $upload = new UploadApi();
+        $result = $upload->upload($path, [
+            'folder' => 'new_central_teknik',
+        ]);
+
+        return $result['secure_url'];
     }
 }
