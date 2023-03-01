@@ -19,38 +19,44 @@
         <div class="min-h-screen bg-midnight bg-wave">
 
             <nav class="fixed top-0 inset-x-0 transition" id="landing-nav">
-                <ul class="w-full max-w-screen-md mx-auto flex justify-between items-center px-4 py-6">
-                    <x-landing-nav-link 
-                        :href="route('landing.home')" 
-                        :active="request()->routeIs('landing.home')"
-                    >
-                        Home
-                    </x-landing-nav-link>
-                    <x-landing-nav-link 
-                        :href="route('landing.products')" 
-                        :active="request()->routeIs('landing.products')"
-                    >
-                        Daftar Produk
-                    </x-landing-nav-link>
-                    <x-landing-nav-link 
-                        :href="route('landing.merks.index')" 
-                        :active="request()->routeIs('landing.merks.*')"
-                    >
-                        Merk
-                    </x-landing-nav-link>
-                    <x-landing-nav-link 
-                        :href="route('landing.about')" 
-                        :active="request()->routeIs('landing.about')"
-                    >
-                        Tentang Kami
-                    </x-landing-nav-link>
-                    <x-landing-nav-link 
-                        :href="route('landing.services')" 
-                        :active="request()->routeIs('landing.services')"
-                    >
-                        Jasa
-                    </x-landing-nav-link>
-                </ul>
+                <div class="w-full max-w-screen-md mx-auto px-4 py-6">
+                    <ul class="hidden md:flex justify-between items-center">
+                        <x-landing-nav-link 
+                            :href="route('landing.home')" 
+                            :active="request()->routeIs('landing.home')"
+                        >
+                            Home
+                        </x-landing-nav-link>
+                        <x-landing-nav-link 
+                            :href="route('landing.products')" 
+                            :active="request()->routeIs('landing.products')"
+                        >
+                            Daftar Produk
+                        </x-landing-nav-link>
+                        <x-landing-nav-link 
+                            :href="route('landing.merks.index')" 
+                            :active="request()->routeIs('landing.merks.*')"
+                        >
+                            Merk
+                        </x-landing-nav-link>
+                        <x-landing-nav-link 
+                            :href="route('landing.about')" 
+                            :active="request()->routeIs('landing.about')"
+                        >
+                            Tentang Kami
+                        </x-landing-nav-link>
+                        <x-landing-nav-link 
+                            :href="route('landing.services')" 
+                            :active="request()->routeIs('landing.services')"
+                        >
+                            Jasa
+                        </x-landing-nav-link>
+                    </ul>
+                    <div class="flex md:hidden justify-between items-center">
+                        <h1 class="font-black">NCT</h1>
+                        <x-menu-icon></x-menu-icon>
+                    </div>
+                </div>
             </nav>
             <main class="px-4 pt-20 pb-36 w-full max-w-screen-md min-h-screen mx-auto">
                 {{ $slot }}

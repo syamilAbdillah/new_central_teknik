@@ -2,9 +2,11 @@
     <x-section>
         <div class="space-y-12">
             <h1 class="text-6xl font-black">New Central Teknik</h1>
-            <p class=" text-neutral-300 text-xl">
-                New Central teknik Telah melayani berbagai Perusahaan Industri Baik dalam hal kebutuhan Sparepart maupun Jasa Pengadaan,Perbaikan,Perawatan Unit Pendingin Kami 
-            </p>
+            <div class="max-w-md">
+                <p class=" text-neutral-300 text-xl">
+                    New Central teknik Telah melayani berbagai Perusahaan Industri Baik dalam hal kebutuhan Sparepart maupun Jasa Pengadaan,Perbaikan,Perawatan Unit Pendingin Kami 
+                </p>
+            </div>
         </div>
     </x-section>
     <x-section>
