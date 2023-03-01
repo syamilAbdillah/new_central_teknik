@@ -21,7 +21,16 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                <button class="btn bg-rose-500 text-white hover:bg-rose-400">delete</button>
+                                <button class="btn btn-danger" x-data @click.prevent="$dispatch('open-modal', 'user-delete-confirmation-{{$user->id}}')" type="submit">delete</button>
+                                    <x-modal name="user-delete-confirmation-{{$user->id}}" focusable>
+                                        <x-delete-confirm>
+                                            <form method="post" action="{{ route('users.destroy', ['user' => $user]) }}" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" >hapus</button>
+                                            </form>
+                                        </x-delete-confirm>
+                                    </x-modal>
                             </td>
                         </tr>
                     @empty
