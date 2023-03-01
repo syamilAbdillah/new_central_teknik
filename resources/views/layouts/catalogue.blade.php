@@ -19,7 +19,7 @@
         <div class="min-h-screen bg-midnight bg-wave">
 
             {{-- NAVBAR --}}
-            <nav class="fixed top-0 inset-x-0 transition" id="landing-nav" x-data="landing_navbar_toggle">
+            <nav class="fixed top-0 inset-x-0 z-50 transition" id="landing-nav" x-data="landing_navbar_toggle">
                 <div class="w-full max-w-screen-md mx-auto p-6">
                     {{-- DESKTOP MENU --}}
                     <ul class="hidden md:flex justify-between items-center">
