@@ -15,10 +15,10 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased text-neutral-700">
-        <div class="min-h-screen bg-white">
+    <body class="font-sans antialiased text-white">
+        <div class="min-h-screen bg-midnight">
 
-            <nav class="fixed top-0 inset-x-0 border-b bg-white">
+            <nav class="fixed top-0 inset-x-0 border-b border-slate-700 bg-midnight">
                 <ul class="w-full max-w-screen-md mx-auto flex justify-between items-center px-4 py-6">
                     <x-landing-nav-link 
                         :href="route('landing.home')" 
@@ -56,7 +56,7 @@
                 {{ $slot }}
             </main>
 
-            <footer class="bg-neutral-600 text-neutral-50">
+            <footer class="bg-neutral-900/25 text-white">
                 <div class="w-full max-w-screen-md mx-auto">
                     <x-section>
                         <div class="space-y-6">

@@ -1,8 +1,8 @@
 <x-catalogue-layout>
     <x-section>
         <div class="space-y-4">
-            <h1 class="text-6xl font-black text-center">New Central Teknik</h1>
-            <p class="text-center text-neutral-400 text-xl">
+            <h1 class="text-6xl font-black md:text-center">New Central Teknik</h1>
+            <p class="md:text-center text-neutral-300 text-xl">
                 New Central teknik Telah melayani berbagai Perusahaan Industri Baik dalam hal kebutuhan Sparepart maupun Jasa Pengadaan,Perbaikan,Perawatan Unit Pendingin Kami 
             </p>
         </div>
@@ -19,7 +19,7 @@
                 @endforeach
             </div>
             <div class="flex justify-center">
-                <a href="{{ route('landing.merks.index') }}" class="btn hover:text-indigo-500 bg-neutral-100">
+                <a href="{{ route('landing.merks.index') }}" class="btn  bg-neutral-900/25 text-white">
                     Tampilkan lebih banyak
                 </a>
             </div>
@@ -38,7 +38,7 @@
                 @endforeach
             </div>
             <div class="flex justify-center">
-                <a href="{{ route('landing.products') }}" class="btn hover:text-indigo-500 bg-neutral-100">
+                <a href="{{ route('landing.products') }}" class="btn bg-neutral-900/25 text-white">
                     Tampilkan lebih banyak
                 </a>
             </div>

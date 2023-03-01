@@ -13,6 +13,14 @@
         @apply scale-95;
     }
 
+    .btn-secondary {
+        @apply bg-emerald-300 text-midnight;
+    }
+
+    .btn-secondary:hover {
+        @apply bg-emerald-400 text-midnight;
+    }
+
     .btn-success {
         @apply bg-emerald-500 text-white;
     }
@@ -67,5 +75,13 @@
     .rainfall {
         background-color: transparent;
         background-image: url(https://merch.deno.com/raindrops-animate.svg);
+    }
+
+    .bg-midnight {
+        background: #161842;
+    }
+
+    .text-midnight {
+        color: #161842;
     }
 }
