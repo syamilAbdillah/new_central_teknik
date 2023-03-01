@@ -15,7 +15,7 @@ return new class extends Migration
             $table->foreignId('merk_id')
                 ->constrained('merks', 'id')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('restrict');
         });
     }
 

@@ -14,6 +14,6 @@ class Product extends Model
 
     public function merk(): BelongsTo
     {
-        return $this->belongsTo(Merk::class);
+        return $this->belongsTo(Merk::class)->withTrashed();
     }
 }

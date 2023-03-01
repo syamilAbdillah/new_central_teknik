@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->default('https://api.dicebear.com/5.x/icons/svg?seed=merk');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
