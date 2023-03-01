@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-12 h-12 rounded-md object-cover">
+                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-16">
                             </td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>
