@@ -41,10 +41,6 @@
                                             </form>
                                         </x-delete-confirm>
                                     </x-modal>
-                                    {{-- <form action="{{ route('products.destroy', ['product' => $product]) }}" method="post" class="inline-flex">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form> --}}
                                 </div>
                             </td>
                         </tr>
