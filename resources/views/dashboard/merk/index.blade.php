@@ -22,7 +22,16 @@
                             <td>
                                 <div class="flex items-center gap-1">
                                     <a href="{{ route('merks.edit', ['merk' => $merk]) }}" class="btn btn-neutral">edit</a>
-                                    <button class="btn btn-danger">delete</button>
+                                    <button class="btn btn-danger" x-data @click.prevent="$dispatch('open-modal', 'merk-delete-confirmation-{{$merk->id}}')">hapus</button>
+                                    <x-modal name="merk-delete-confirmation-{{$merk->id}}" focusable>
+                                        <x-delete-confirm>
+                                            <form method="post" action="{{ route('merks.destroy', ['merk' => $merk]) }}" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" >hapus</button>
+                                            </form>
+                                        </x-delete-confirm>
+                                    </x-modal>
                                 </div>
                             </td>
                         </tr>                    

@@ -31,11 +31,20 @@
                                 <div class="flex gap-1 flex-col sm:flex-row items-center">
                                     <a class="btn btn-neutral" href="{{ route('products.edit', ['product' => $product]) }}">edit</a>
                                     
-                                    <form action="{{ route('products.destroy', ['product' => $product]) }}" method="post" class="inline-flex">
+                                    <button class="btn btn-danger" x-data @click.prevent="$dispatch('open-modal', 'product-delete-confirmation-{{$product->id}}')" type="submit">delete</button>
+                                    <x-modal name="product-delete-confirmation-{{$product->id}}" focusable>
+                                        <x-delete-confirm>
+                                            <form method="post" action="{{ route('products.destroy', ['product' => $product]) }}" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger" >hapus</button>
+                                            </form>
+                                        </x-delete-confirm>
+                                    </x-modal>
+                                    {{-- <form action="{{ route('products.destroy', ['product' => $product]) }}" method="post" class="inline-flex">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">delete</button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </td>
                         </tr>

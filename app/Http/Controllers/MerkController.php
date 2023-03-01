@@ -88,7 +88,8 @@ class MerkController extends Controller
      */
     public function destroy(Merk $merk)
     {
-        //
+        $merk->delete();
+        return redirect(route('merks.index'));
     }
 
     private function cloudinary(string $path): string
