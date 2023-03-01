@@ -42,6 +42,7 @@ class MerkController extends Controller
         $merk->name = $validated['name'];
         $merk->image =  $this->cloudinary($request->file('image')->getRealPath());
         $merk->save();
+        $request->session()->flash('success-message', 'berhasil membuat data merk');
         return redirect(route('merks.index'));
     }
 
@@ -80,15 +81,17 @@ class MerkController extends Controller
 
         $merk->save();
 
+        $request->session()->flash('success-message', 'berhasil mengubah data merk');
         return redirect(route('merks.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Merk $merk)
+    public function destroy(Request $request, Merk $merk)
     {
         $merk->delete();
+        $request->session()->flash('success-message', 'berhasil menghapus data merk');
         return redirect(route('merks.index'));
     }
 

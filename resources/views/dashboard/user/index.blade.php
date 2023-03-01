@@ -34,7 +34,11 @@
                             </td>
                         </tr>
                     @empty
-                        
+                        <tr>
+                            <td colspan="5">
+                                <p class="text-center">belum ada pengguna</p>
+                            </td>
+                        </tr>
                     @endforelse
                 </tbody>
             </x-table>

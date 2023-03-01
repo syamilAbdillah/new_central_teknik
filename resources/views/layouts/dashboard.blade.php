@@ -19,6 +19,9 @@
         <div class="min-h-screen bg-neutral-100">
             <x-navbar></x-navbar>
             <x-sidebar></x-sidebar>
+            <x-success-message :show="Session::has('success-message')">
+                {{ Session::get('success-message') }}
+            </x-success-message>
             <!-- Page Content -->
             <main class="pt-16 lg:pl-64">
                 {{ $slot }}

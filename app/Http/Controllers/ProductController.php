@@ -52,6 +52,7 @@ class ProductController extends Controller
         $product->merk_id = $validated['merk_id'];
         $product->image = $this->cloudinary($request->file('image')->getRealPath());
         $product->save();
+        $request->session()->flash('success-message', 'berhasil membuat data produk');
         return redirect(route('products.index'));
     }
 
@@ -118,16 +119,18 @@ class ProductController extends Controller
         $product->price = $validated['price'];
         $product->merk_id = $validated['merk_id'];
         $product->save();
-        
+
+        $request->session()->flash('success-message', 'berhasil mengubah data produk');
         return redirect(route('products.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request,Product $product)
     {
         $product->delete();
+        $request->session()->flash('success-message', 'berhasil menghapus data produk');
         return redirect(route('products.index'));
     }
 

@@ -42,6 +42,7 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         User::create($validated);
+        $request->session()->flash('success-message', 'berhasil membuat data pengguna');
         return redirect(route('users.index'));
     }
 
@@ -72,9 +73,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user)
     {
         $user->delete();
+        $request->session()->flash('success-message', 'berhasil menghapus data pengguna');
         return redirect(route('users.index'));
     }
 }
