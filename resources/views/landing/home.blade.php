@@ -11,15 +11,16 @@
     </x-section>
     <x-section>
         <div class="space-y-8">
-            <h1 class="text-2xl font-bold text-center">Merk</h1>
-            <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+            <h1 class="text-2xl text-center">Merk</h1>
+            <x-cards-layout>
                 @foreach ($merks as $merk)
-                    <a href="{{ route('landing.merks.detail', ['merk' => $merk]) }}" class="flex flex-col items-center justify-center p-4 bg-blue-900/25 rounded-lg hover:scale-105 transition">
-                        <img src="{{ $merk->image }}" alt="{{ $merk->name }}">
-                        <span>{{ $merk->name }}</span>
-                    </a>
+                    <x-merk-card
+                        :href="route('landing.merks.detail', ['merk' => $merk])"
+                        :image="$merk->image"
+                        :name="$merk->name"
+                    ></x-merk-card>
                 @endforeach
-            </div>
+            </x-cards-layout>
             <div class="flex justify-center">
                 <a href="{{ route('landing.merks.index') }}" class="btn  bg-neutral-900/25 text-white">
                     Tampilkan lebih banyak
@@ -29,16 +30,17 @@
     </x-section>
     <x-section>
         <div class="space-y-8">
-            <h1 class="text-2xl font-bold text-center">Produk</h1>
-            <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+            <h1 class="text-2xl text-center">Produk</h1>
+            <x-cards-layout>
                 @foreach ($products as $product)
-                    <a class="flex flex-col items-center">
-                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
-                        <span>{{ $product->name }}</span>
-                        <span class="text-neutral-400">{{ $product->merk->name }}</span>
-                    </a>
+                    <div>
+                        <x-product-card 
+                            :image="$product->image"
+                            :name="$product->name"
+                        ></x-product-card>
+                    </div>
                 @endforeach
-            </div>
+            </x-cards-layout>
             <div class="flex justify-center">
                 <a href="{{ route('landing.products') }}" class="btn bg-neutral-900/25 text-white">
                     Tampilkan lebih banyak

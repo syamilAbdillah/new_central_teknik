@@ -1,21 +1,17 @@
 <x-catalogue-layout>
     <x-section>
-        <h1 class="text-4xl font-black text-center">daftar produk</h1>
+        <h1 class="text-4xl text-center">daftar produk</h1>
     </x-section>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 p-6">
-        @forelse ($products as $product)
-            <a class="flex flex-col items-center">
-                <img src="{{ $product->image }}" alt="{{ $product->name }}">
-                <span class="text-lg font-semibold">{{ $product->name }}</span>
-                <span class="text-neutral-400">{{ $product->merk->name }}</span>
-            </a>
-        @empty
-            <div class="grid place-content-center col-span-2 sm:col-span-3 md:col-span-4">
-                <h1 class="text-2xl font-thin font-mono text-neutral-400">
-                    belum ada data produk
-                </h1>
+    
+    <x-cards-layout>
+        @foreach ($products as $product)
+            <div>
+                <x-product-card 
+                    :image="$product->image"
+                    :name="$product->name"
+                ></x-product-card>
             </div>
-        @endforelse
-    </div>
+        @endforeach
+    </x-cards-layout>
 </x-catalogue-layout>

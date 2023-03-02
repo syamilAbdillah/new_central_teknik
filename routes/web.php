@@ -51,8 +51,8 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/', function() {
-    $merks = Merk::all()->sortBy('name')->take(6);
-    $products = Product::with('merk')->get()->sortBy('name')->take(6);
+    $merks = Merk::all()->sortBy('name')->take(4);
+    $products = Product::all()->sortBy('name')->take(4);
 
     return view('landing.home', [
         'merks' => $merks,
@@ -77,7 +77,7 @@ Route::get('/merk/{merk}', function(Merk $merk) {
 })->name('landing.merks.detail');
 
 Route::get('/daftar-produk', function() {
-    $products = Product::with('merk')->get();
+    $products = Product::all();
     return view('landing.products', [
         'products' => $products,
     ]);
