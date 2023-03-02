@@ -94,3 +94,5 @@
         background-repeat: no-repeat;
     }
 }
+
+[x-cloak] { display: none !important; }

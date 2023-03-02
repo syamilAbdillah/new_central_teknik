@@ -13,7 +13,7 @@
         </div>
     </a>
 
-    <div class="fixed inset-0 z-50 p-8 grid place-content-center bg-neutral-900/75" x-show="show" x-transition>
+    <div class="fixed inset-0 z-50 p-8 grid place-content-center bg-neutral-900/75" x-cloak x-show="show" x-transition>
         <div class="relative grid w-full max-w-screen-md">
             <img src="{{ $image }}" alt="{{ $name }}" @click.outside="show = false">
             <button class="absolute top-2 right-2 w-8 h-8 p-1 rounded-full bg-neutral-700/50 active:scalte-95 transition" @click="show = false">
