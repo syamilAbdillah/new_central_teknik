@@ -12,13 +12,6 @@
                     @enderror
                 </label>
                 <label class="block">
-                    <span class="label">{{__('Harga')}}</span>
-                    <input type="number" name="price" value="{{ old('price') }}" placeholder="{{__('harga produk')}}" required class="input">
-                    @error('price')
-                        <span class="label text-rose-500">{{ $message }}</span>    
-                    @enderror
-                </label>
-                <label class="block">
                     <span class="label">{{ __('Merk') }}</span>
                     <select name="merk_id" class="input">
                         @forelse ($merks as $merk)

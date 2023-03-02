@@ -12,7 +12,6 @@
                         <th>no</th>
                         <th>gambar</th>
                         <th>nama produk</th>
-                        <th>harga</th>
                         <th>merk</th>
                         <th>aksi</th>
                     </tr>
@@ -25,7 +24,6 @@
                                 <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-16">
                             </td>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->price }}</td>
                             <td>{{ $product->merk->name }}</td>
                             <td>
                                 <div class="flex gap-1 flex-col sm:flex-row items-center">
