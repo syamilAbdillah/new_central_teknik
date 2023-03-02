@@ -7,7 +7,7 @@
 
 <div class="block" x-data="{ show: false }">
     <a {{ $attributes->merge(['class' => 'relative block pb-9 rounded-md cursor-pointer overflow-hidden']) }} @click="show = true">
-        <img src="{{ $image }}" alt="{{ $name }}" class="hover:scale-110 transition">
+        <img src="{{ $image }}" alt="{{ $name }}" class="w-full object-cover aspect-square hover:scale-110 transition">
         <div class="absolute bg-slate-700 bottom-0 inset-x-0 py-1 px-3">
             <span class="text-lg text-white truncate">{{ $name }}</span>
         </div>
