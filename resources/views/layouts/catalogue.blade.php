@@ -140,21 +140,27 @@
                                     <h2 class="font-bold">Kontak</h2>
                                     <ul class="flex flex-col gap-1">
                                         <li>
-                                            <a href="#" class="inline-flex items-center gap-1">
+                                            <a href="https://api.whatsapp.com/send?phone=+6282143957546&text=hello" class="inline-flex items-center gap-1">
                                                 <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
-                                                (marketing)
+                                                <span> 
+                                                   082143957546 (marketing)
+                                                </span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="inline-flex items-center gap-1">
+                                            <a href="https://api.whatsapp.com/send?phone=+6281325787107&text=hello" class="inline-flex items-center gap-1">
                                                 <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
-                                                (jasa)
+                                                <span> 
+                                                    081325787107 (jasa)
+                                                 </span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="inline-flex items-center gap-1">
+                                            <a href="https://api.whatsapp.com/send?phone=+6282135565796&text=hello" class="inline-flex items-center gap-1">
                                                 <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
-                                                (admin)
+                                                <span> 
+                                                    082135565796 (marketing)
+                                                 </span>
                                             </a>
                                         </li>
                                     </ul>
