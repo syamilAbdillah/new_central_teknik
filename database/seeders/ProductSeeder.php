@@ -99,7 +99,7 @@ class ProductSeeder extends Seeder
 
         $thermostat = new Product();
         $thermostat->name = 'thermostat';
-        $thermostat->image = 'http://www.homedepot.com/catalog/productImages/1000/14/14626919-b55f-42a2-ab97-f9d6480c45e2_1000.jpg';
+        $thermostat->image = 'http://new-england-contractor.com/news/wp-content/uploads/2006/02/prog-thermostat.jpg';
         $thermostat->merk_id = 1;
         $thermostat->save();
 
@@ -159,7 +159,7 @@ class ProductSeeder extends Seeder
 
         $manifold = new Product();
         $manifold->name = 'manifold';
-        $manifold->image = 'https://www.geminibv.com/wp-content/uploads/2019/03/manifold-3-2966.jpg';
+        $manifold->image = 'http://cfnewsads.thomasnet.com/images/large/452/452822.jpg';
         $manifold->merk_id = 1;
         $manifold->save();
 
