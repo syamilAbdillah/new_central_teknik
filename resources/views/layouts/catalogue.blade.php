@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased text-white">
-        <div class="min-h-screen bg-midnight bg-wave">
+        <div class="min-h-screen overflow-x-hidden bg-midnight bg-wave">
 
             {{-- NAVBAR --}}
             <nav class="fixed top-0 inset-x-0 z-50 transition" id="landing-nav" x-data="landing_navbar_toggle">
