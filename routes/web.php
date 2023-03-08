@@ -11,6 +11,7 @@ use App\Models\Merk;
 use App\Models\Product;
 use App\Models\Social;
 use App\Models\User;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,21 +60,25 @@ Route::get('/', function() {
     $merks = Merk::all()->sortBy('name')->take(4);
     $products = Product::all()->sortBy('name')->take(4);
     $socials  = Social::all();
+    $contacts = Contact::all();
 
     return view('landing.home', [
         'merks' => $merks,
         'products' => $products,
         'socials' => $socials,
+        'contacts' => $contacts,
     ]);
 })->name('landing.home');
 
 Route::get('/merk', function() {
     $merks = Merk::all();
     $socials  = Social::all();
+    $contacts = Contact::all();
 
     return view('landing.merks.index', [
         'merks' => $merks,
         'socials' => $socials,
+        'contacts' => $contacts,
     ]);
 })->name('landing.merks.index');
 
@@ -81,31 +86,39 @@ Route::get('/merk', function() {
 
 Route::get('/merk/{merk}', function(Merk $merk) {
     $socials  = Social::all();
+    $contacts = Contact::all();
     return view('landing.merks.detail', [
         'merk' => $merk,
         'socials' => $socials,
+        'contacts' => $contacts,
     ]);
 })->name('landing.merks.detail');
 
 Route::get('/daftar-produk', function() {
     $socials  = Social::all();
+    $contacts = Contact::all();
     $products = Product::all();
     return view('landing.products', [
         'products' => $products,
         'socials' => $socials,
+        'contacts' => $contacts,
     ]);
 })->name('landing.products');
 
 Route::get('/tentang-kami', function() {
     $socials  = Social::all();
+    $contacts = Contact::all();
     return view('landing.about', [
         'socials' => $socials,
+        'contacts' => $contacts,
     ]);
 })->name('landing.about');
 
 Route::get('/jasa', function() {
     $socials  = Social::all();
+    $contacts = Contact::all();
     return view('landing.services',[
         'socials' => $socials,
+        'contacts' => $contacts,
     ]);
 })->name('landing.services');

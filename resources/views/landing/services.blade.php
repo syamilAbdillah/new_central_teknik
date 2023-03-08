@@ -1,4 +1,4 @@
-<x-catalogue-layout :socials="$socials">
+<x-catalogue-layout :socials="$socials" :contacts="$contacts">
     <x-section>
         <div class="grid md:grid-cols-2 gap-24 md:gap-6">
             <div class="z-20 space-y-6">
@@ -17,12 +17,21 @@
                     </button>
                     <div x-cloak x-transition x-show="show" @click.outside="show = false" class="absolute z-20 left-12 top-12 md:left-36 md:-top-24 w-72 rounded-lg p-6 bg-slate-800 shadow-lg">
                         <ul class="flex flex-col gap-3">
-                            <li class="inline-flex items-center gap-2">
-                                <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
-                                <span> 
-                                   082143957546 (marketing)
-                                </span>
-                            </li>
+                            @forelse ($contacts as $contact)
+                                <li class="inline-flex items-center gap-2">
+                                    <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
+                                    <span> 
+                                        {{ $contact->phone }} - {{ $contact->name }}
+                                    </span>
+                                </li>
+                            @empty
+                                <li class="inline-flex items-center gap-2">
+                                    <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
+                                    <span> 
+                                        belum ada kontak
+                                    </span>
+                                </li>
+                            @endforelse
                             <li class="inline-flex items-center gap-2">
                                 <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
                                 <span> 

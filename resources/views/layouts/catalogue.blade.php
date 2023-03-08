@@ -1,4 +1,4 @@
-@props(['socials'])
+@props(['socials', 'contacts'])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -137,7 +137,29 @@
                                 <div class="space-y-2">
                                     <h2 class="font-bold">Kontak</h2>
                                     <ul class="flex flex-col gap-1">
-                                        <li>
+                                        @forelse ($contacts as $contact)
+                                            <li>
+                                                <a href="#" class="inline-flex items-center gap-1">
+                                                    <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
+                                                    <span> 
+                                                        {{$contact->phone}} - {{$contact->name}}
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            
+                                        @empty
+                                            <li>
+                                                <a href="#" class="inline-flex items-center gap-1">
+                                                    <span> 
+                                                        belum ada kontak
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            
+                                        @endforelse
+
+
+                                        {{-- <li>
                                             <a href="https://api.whatsapp.com/send?phone=+6282143957546&text=hello" class="inline-flex items-center gap-1">
                                                 <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
                                                 <span> 
@@ -161,7 +183,7 @@
                                                  </span>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                             </div>
                         </div>
