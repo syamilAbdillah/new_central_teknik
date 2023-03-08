@@ -4,6 +4,7 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\UserController;
 use App\Models\Merk;
 use App\Models\Product;
@@ -38,6 +39,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function() {
         ->except(['show', 'edit', 'update']);
     Route::resource('products', ProductController::class)->except('show');
     Route::resource('merks', MerkController::class)->except('show');
+    Route::resource('socials', SocialController::class)->except('show');
 });
 
 Route::middleware('auth')->group(function () {
