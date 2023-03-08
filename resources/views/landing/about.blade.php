@@ -1,4 +1,4 @@
-<x-catalogue-layout>
+<x-catalogue-layout :socials="$socials">
     <x-section>
         <div class="space-y-12">
             <div class="grid gap-8">

@@ -1,3 +1,5 @@
+@props(['socials'])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -116,24 +118,20 @@
                                 <div class="space-y-2">
                                     <h2 class="font-bold">Sosial Media</h2>
                                     <ul class="flex flex-col gap-1">
-                                        <li>
-                                            <a href="#" class="inline-flex items-center gap-1">
-                                                <img src="https://seeklogo.com/images/F/facebook-logo-966BBFBC34-seeklogo.com.png" alt="instagram" class="w-4">
-                                                Facebook
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-flex items-center gap-1">
-                                                <img src="https://seeklogo.com/images/I/instagram-new-2016-logo-D9D42A0AD4-seeklogo.com.png" alt="instagram" class="w-4">
-                                                Instagram
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="inline-flex items-center gap-1">
-                                                <img src="https://seeklogo.com/images/T/tokopedia-logo-5340B636F6-seeklogo.com.png" alt="toko pedia" class="w-4">
-                                                Tokopedia
-                                            </a>
-                                        </li>
+                                        @forelse ($socials as $social)
+                                            <li>
+                                                <a href="{{ $social->link }}" class="inline-flex items-center gap-1">
+                                                    <img src="{{$social->image}}" alt="{{$social->name}}" class="w-4">
+                                                    {{$social->name}}
+                                                </a>
+                                            </li>
+                                        @empty
+                                            <li>
+                                                <a href="#" class="inline-flex items-center gap-1">
+                                                    blum ada data
+                                                </a>
+                                            </li>
+                                        @endforelse
                                     </ul>
                                 </div>
                                 <div class="space-y-2">

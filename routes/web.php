@@ -8,6 +8,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\UserController;
 use App\Models\Merk;
 use App\Models\Product;
+use App\Models\Social;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -55,40 +56,54 @@ require __DIR__.'/auth.php';
 Route::get('/', function() {
     $merks = Merk::all()->sortBy('name')->take(4);
     $products = Product::all()->sortBy('name')->take(4);
+    $socials  = Social::all();
 
     return view('landing.home', [
         'merks' => $merks,
         'products' => $products,
+        'socials' => $socials,
     ]);
 })->name('landing.home');
 
 Route::get('/merk', function() {
     $merks = Merk::all();
+    $socials  = Social::all();
 
     return view('landing.merks.index', [
         'merks' => $merks,
+        'socials' => $socials,
     ]);
 })->name('landing.merks.index');
 
 
 
 Route::get('/merk/{merk}', function(Merk $merk) {
+    $socials  = Social::all();
     return view('landing.merks.detail', [
         'merk' => $merk,
+        'socials' => $socials,
     ]);
 })->name('landing.merks.detail');
 
 Route::get('/daftar-produk', function() {
+    $socials  = Social::all();
     $products = Product::all();
     return view('landing.products', [
         'products' => $products,
+        'socials' => $socials,
     ]);
 })->name('landing.products');
 
 Route::get('/tentang-kami', function() {
-    return view('landing.about');
+    $socials  = Social::all();
+    return view('landing.about', [
+        'socials' => $socials,
+    ]);
 })->name('landing.about');
 
 Route::get('/jasa', function() {
-    return view('landing.services');
+    $socials  = Social::all();
+    return view('landing.services',[
+        'socials' => $socials,
+    ]);
 })->name('landing.services');

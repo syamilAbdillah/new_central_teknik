@@ -1,4 +1,4 @@
-<x-catalogue-layout>
+<x-catalogue-layout :socials="$socials">
     <x-section>
         <h1 class="text-4xl text-center">Merk: "{{$merk->name}}"</h1>
     </x-section>

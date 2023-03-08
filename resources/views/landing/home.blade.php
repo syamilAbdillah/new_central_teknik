@@ -1,4 +1,4 @@
-<x-catalogue-layout>
+<x-catalogue-layout :socials="$socials">
     <x-section>
         <div class="space-y-12">
             <h1 class="text-6xl font-black">New Central Teknik</h1>
