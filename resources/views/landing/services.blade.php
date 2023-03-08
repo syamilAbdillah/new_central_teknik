@@ -32,18 +32,6 @@
                                     </span>
                                 </li>
                             @endforelse
-                            <li class="inline-flex items-center gap-2">
-                                <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
-                                <span> 
-                                    081325787107 (jasa)
-                                </span>
-                            </li>
-                            <li class="inline-flex items-center gap-2">
-                                <img src="https://seeklogo.com/images/W/whatsapp-icon-logo-BDC0A8063B-seeklogo.com.png" alt="whatssapp" class="w-4">
-                                <span> 
-                                    082135565796 (admin)
-                                </span>
-                            </li>
                         </ul>
                     </div>
 
