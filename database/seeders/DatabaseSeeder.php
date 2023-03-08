@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MerkSeeder::class,
             ProductSeeder::class,
+            SocialSeeder::class,
         ]);
     }
 }
