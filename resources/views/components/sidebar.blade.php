@@ -25,6 +25,9 @@
         <x-sidebar-link :href="route('socials.index')" :active="request()->routeIs('socials.*')">
             {{__('Sosmed')}}
         </x-sidebar-link>
+        <x-sidebar-link :href="route('contacts.index')" :active="request()->routeIs('contacts.*')">
+            {{__('Kontak')}}
+        </x-sidebar-link>
     </ul>
 </aside>
 

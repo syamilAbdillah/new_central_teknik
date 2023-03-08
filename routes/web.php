@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -41,6 +42,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function() {
     Route::resource('products', ProductController::class)->except('show');
     Route::resource('merks', MerkController::class)->except('show');
     Route::resource('socials', SocialController::class)->except('show');
+    Route::resource('contacts', ContactController::class)->except('show');
 });
 
 Route::middleware('auth')->group(function () {
