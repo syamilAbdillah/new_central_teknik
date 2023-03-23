@@ -49,6 +49,9 @@
         </div>
     </x-section>
     <x-section>
+        <img src="/new_central_teknik.jpeg" alt="">
+    </x-section>
+    <x-section>
         <h1 class="text-2xl text-center mb-8">Lokasi</h1>
         <iframe class="w-full aspect-video rounded" src="https://maps.google.com/maps?q=Jl.%20Anjasmoro%20Tengah%20II%20No.28,%20Karangayu,%20Kec.%20Semarang%20Barat,%20Kota%20Semarang,%20Jawa%20Tengah%2050149&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" id="gmap_canvas" frameborder="0" scrolling="no"></iframe>
     </x-section>
